@@ -1,0 +1,40 @@
+{% extends 'main/bootstrap.html' %}
+
+{% load bootstrap3 %}
+
+{% block bootstrap3_content %}
+
+    <div class="container">
+        <h1>{% block title %}(no title){% endblock %}</h1>
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul class="nav navbar-nav">
+                <li class="active"><a class="navbar-brand" href="{% url 'home' %}">DataViz</a></li>
+                <li><a href="{% url 'formset_default' %}">formset</a></li>
+                <li><a href="{% url 'form_default' %}">form</a></li>
+                <li><a href="{% url 'form_by_field' %}">form_by_field</a></li>
+                <li><a href="{% url 'form_horizontal' %}">form_horizontal</a></li>
+                <li><a href="{% url 'form_inline' %}">form_inline</a></li>
+                <li><a href="{% url 'form_with_files' %}">form_with_files</a></li>
+                <li><a href="{% url 'pagination' %}">pagination</a></li>
+                <li><a href="{% url 'misc' %}">miscellaneous</a></li>
+            </ul>
+          </div>
+        </div>
+        </nav>
+
+        {% autoescape off %}{% bootstrap_messages %}{% endautoescape %}
+
+        {% block content %}(no content){% endblock %}
+    </div>
+
+{% endblock %}
