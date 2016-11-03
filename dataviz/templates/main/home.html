@@ -17,6 +17,15 @@
 {% block title %}django-bootstrap3{% endblock %}
 
 {% block content %}
+    
     This is <em>bootstrap3</em> for <strong>Django</strong>. 
-    {{ figure|safe }}
+
+	<div class="row">
+        <div class="col-md-4">{{ figure.Blue|safe }}</div>
+        <div class="col-md-4">{{ figure.Red|safe }}</div>
+        <div class="col-md-4">{{ figure.Green|safe }}</div>
+    </div>
+    
+    
+    
 {% endblock %}
