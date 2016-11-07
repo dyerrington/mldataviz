@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.conf.urls import url
 
 from .views import HomePageView, FormHorizontalView, FormInlineView, PaginationView, FormWithFilesView, \
-    DefaultFormView, MiscView, DefaultFormsetView, DefaultFormByFieldView
+    DefaultFormView, MiscView, DefaultFormsetView, DefaultFormByFieldView, ConfusionView
 
 urlpatterns = [
     url(r'^$', HomePageView.as_view(), name='home'),
@@ -16,5 +16,5 @@ urlpatterns = [
     url(r'^form_with_files$', FormWithFilesView.as_view(), name='form_with_files'),
     url(r'^pagination$', PaginationView.as_view(), name='pagination'),
     url(r'^misc$', MiscView.as_view(), name='misc'),
+    url(r'^confusion$', ConfusionView.as_view(), name='confusion'),
 ]
-

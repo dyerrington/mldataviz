@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+{% load bootstrap3 %}
+
+{% block bootstrap3_extra_head %}
+	<link
+	    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.3.min.css"
+	    rel="stylesheet" type="text/css">
+	<link
+	    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.3.min.css"
+	    rel="stylesheet" type="text/css">
+
+	<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.3.min.js"></script>
+	<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.3.min.js"></script>
+	{{ bokeh_script|safe }}
+{% endblock %}
+
+{% block title %}django-bootstrap3{% endblock %}
+
+{% block content %}
+
+    This is <em>bootstrap3</em> for <strong>Django</strong>.
+
+	<div class="row"> {{ figure|safe }}
+
+{% endblock %}

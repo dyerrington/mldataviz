@@ -22,6 +22,8 @@ from bokeh.plotting import figure
 from bokeh.models import Range1d
 from bokeh.embed import components
 
+from .plots.confusion import generate_confusion_layout
+
 import numpy as np
 
 
@@ -33,6 +35,22 @@ class FakeField(object):
 fieldfile = FieldFile(None, FakeField, 'dummy.txt')
 
 
+class ConfusionView(TemplateView):
+    template_name = 'main/confusion.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ConfusionView, self).get_context_data(**kwargs)
+
+        plot = generate_confusion_layout()
+
+        script, div = components(plot, CDN)
+
+        context['bokeh_script'] = script
+        context['figure'] = div
+
+        return context
+
+
 class HomePageView(TemplateView):
     template_name = 'main/home.html'
 
@@ -40,7 +58,7 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
         messages.info(self.request, 'hello http://example.com')
-        
+
         # create some data
         x1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         y1 = [0, 8, 2, 4, 6, 9, 5, 6, 25, 28, 4, 7]
